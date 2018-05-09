@@ -7,7 +7,7 @@ var sudioAnalyser;
 var audioPlayHandler;
 
 window.onload = function () {
-  
+
   // Init Canvas Style
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
@@ -67,24 +67,24 @@ window.onload = function () {
   var lightCanvasContext = lightCanvas.getContext('2d');
 
   var leftLightImg = new Image();
-  var lightWidth = 100;
+  var lightWidth = 160;
   leftLightImg.src = './left_light.svg';
   leftLightImg.onload = function () {
-    lightCanvasContext.drawImage(leftLightImg, canvasWidth / 6 - 50, -26, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(leftLightImg, canvasWidth / 6 - 86, -42, lightWidth, lightWidth);
   }
 
   var midLightImg = new Image();
-  var midLightWidth = 100;
+  var midLightWidth = 160;
   midLightImg.src = './mid_light.svg';
   midLightImg.onload = function () {
-    lightCanvasContext.drawImage(midLightImg, canvasWidth / 2 - 60, -26, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(midLightImg, canvasWidth / 2 - 106, -42, lightWidth, lightWidth);
   }
 
   var rightLightImg = new Image();
-  var rightLightWidth = 100;
+  var rightLightWidth = 160;
   rightLightImg.src = './right_light.svg';
   rightLightImg.onload = function () {
-    lightCanvasContext.drawImage(rightLightImg, canvasWidth * 5 / 6 - 58, -24, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(rightLightImg, canvasWidth * 5 / 6 - 98, -38, lightWidth, lightWidth);
   }
 
   audioPlayHandler = function () {
@@ -146,7 +146,7 @@ window.onload = function () {
       frogCanvasContext.stroke();
 
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
-      
+
       var random = Math.floor(Math.random() * 190) + 50;
       if (dataArray[0] > 220) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
@@ -157,7 +157,7 @@ window.onload = function () {
         bassCanvasContext.fill();
       }
 
-      if (dataArray[50] < 120 && dataArray[50] > 0) {
+      if (dataArray[50] < 110 && dataArray[50] > 0) {
         var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
@@ -179,39 +179,39 @@ window.onload = function () {
   }
 
 
-  function renderLightBG () {
+  function renderLightBG() {
     // Render Left Light Background
-    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 40, 16, canvasWidth / 6 - 4, 50, 48);
+    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 8, 64, 16, canvasWidth / 6 - 8, 72, 64);
 
     var leftColor = 'rgba(160,50,200, .4)';
     grdLeft.addColorStop(0, leftColor);
-    grdLeft.addColorStop(0.8, 'black');
+    grdLeft.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 - 4, 40, 40, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 - 8, 64, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdLeft;
     lightBGCanvasContext.fill();
 
     // Render Mid Light Background
-    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 20, 40, 14, canvasWidth / 2 - 20, 50, 48);
+    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 38, 60, 16, canvasWidth / 2 - 38, 72, 64);
     var midColor = 'rgba(163,60,50, .4)';
     grdMid.addColorStop(0, midColor);
-    grdMid.addColorStop(0.9, 'black');
+    grdMid.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 2 - 20, 40, 40, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 2 - 38, 60, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdMid;
     lightBGCanvasContext.fill();
 
     // Render Right Light Background
-    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 14, 40, 14, canvasWidth / 6 * 5 - 14, 50, 48);
+    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 24, 64, 16, canvasWidth / 6 * 5 - 24, 72, 64);
     var rightColor = 'rgba(50,129,97, .4)' || 'rgba(120,50,180, .4)';
 
     grdRight.addColorStop(0, rightColor);
-    grdRight.addColorStop(0.9, 'black');
+    grdRight.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 14, 40, 40, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 24, 64, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdRight;
     lightBGCanvasContext.fill();
   }
