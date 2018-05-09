@@ -70,21 +70,21 @@ window.onload = function () {
   var lightWidth = 160;
   leftLightImg.src = './left_light.svg';
   leftLightImg.onload = function () {
-    lightCanvasContext.drawImage(leftLightImg, canvasWidth / 6 - 86, -42, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(leftLightImg, canvasWidth / 6 - 82, -42, lightWidth, lightWidth);
   }
 
   var midLightImg = new Image();
   var midLightWidth = 160;
   midLightImg.src = './mid_light.svg';
   midLightImg.onload = function () {
-    lightCanvasContext.drawImage(midLightImg, canvasWidth / 2 - 106, -42, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(midLightImg, canvasWidth / 2 - 98, -42, lightWidth, lightWidth);
   }
 
   var rightLightImg = new Image();
   var rightLightWidth = 160;
   rightLightImg.src = './right_light.svg';
   rightLightImg.onload = function () {
-    lightCanvasContext.drawImage(rightLightImg, canvasWidth * 5 / 6 - 98, -38, lightWidth, lightWidth);
+    lightCanvasContext.drawImage(rightLightImg, canvasWidth * 5 / 6 - 92, -40, lightWidth, lightWidth);
   }
 
   audioPlayHandler = function () {
@@ -181,37 +181,37 @@ window.onload = function () {
 
   function renderLightBG() {
     // Render Left Light Background
-    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 8, 64, 16, canvasWidth / 6 - 8, 72, 64);
+    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 64, 16, canvasWidth / 6 - 4, 72, 64);
 
     var leftColor = 'rgba(160,50,200, .4)';
     grdLeft.addColorStop(0, leftColor);
     grdLeft.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 - 8, 64, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 - 4, 64, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdLeft;
     lightBGCanvasContext.fill();
 
     // Render Mid Light Background
-    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 38, 60, 16, canvasWidth / 2 - 38, 72, 64);
+    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 30, 60, 16, canvasWidth / 2 - 30, 68, 64);
     var midColor = 'rgba(163,60,50, .4)';
     grdMid.addColorStop(0, midColor);
     grdMid.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 2 - 38, 60, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 2 - 30, 60, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdMid;
     lightBGCanvasContext.fill();
 
     // Render Right Light Background
-    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 24, 64, 16, canvasWidth / 6 * 5 - 24, 72, 64);
+    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 20, 64, 16, canvasWidth / 6 * 5 - 20, 72, 64);
     var rightColor = 'rgba(50,129,97, .4)' || 'rgba(120,50,180, .4)';
 
     grdRight.addColorStop(0, rightColor);
     grdRight.addColorStop(1, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 24, 64, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 20, 64, 56, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdRight;
     lightBGCanvasContext.fill();
   }
