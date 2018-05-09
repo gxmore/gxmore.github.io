@@ -148,7 +148,7 @@ window.onload = function () {
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
 
       var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 220) {
+      if (dataArray[0] > 225) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
@@ -181,7 +181,7 @@ window.onload = function () {
 
   function renderLightBG() {
     // Render Left Light Background
-    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 64, 30, canvasWidth / 6 - 4, 72, 68);
+    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 64, 30, canvasWidth / 6 - 4, 72, 64);
 
     var leftColor = 'rgba(160,50,200, .4)';
     grdLeft.addColorStop(0, leftColor);
@@ -193,7 +193,7 @@ window.onload = function () {
     lightBGCanvasContext.fill();
 
     // Render Mid Light Background
-    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 30, 60, 30, canvasWidth / 2 - 30, 68, 68);
+    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 30, 60, 30, canvasWidth / 2 - 30, 68, 64);
     var midColor = 'rgba(163,60,50, .4)';
     grdMid.addColorStop(0, midColor);
     grdMid.addColorStop(0.8, 'black');
@@ -204,7 +204,7 @@ window.onload = function () {
     lightBGCanvasContext.fill();
 
     // Render Right Light Background
-    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 20, 64, 30, canvasWidth / 6 * 5 - 20, 72, 68);
+    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 20, 64, 30, canvasWidth / 6 * 5 - 20, 72, 64);
     var rightColor = 'rgba(50,129,97, .4)' || 'rgba(120,50,180, .4)';
 
     grdRight.addColorStop(0, rightColor);
