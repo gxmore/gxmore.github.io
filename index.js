@@ -7,9 +7,7 @@ var sudioAnalyser;
 var audioPlayHandler;
 
 window.onload = function () {
-  // var file = document.getElementById("thefile");
-  // var audio = document.getElementById("audio");
-
+  
   // Init Canvas Style
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
@@ -102,7 +100,7 @@ window.onload = function () {
 
     function renderFrame() {
       if (hasRendered && !isAudioPlaying) {
-        return;
+        //return;
       }
 
       requestAnimationFrame(renderFrame);
@@ -114,9 +112,9 @@ window.onload = function () {
 
       // Draw Frog Left Leg
       frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-      var frogLeftRightOffset = Number((((dataArray[4] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
+      var frogLeftRightOffset = Number((((dataArray[4] - dataArray[80]) / 255) * canvasHeight / 1.8).toFixed(2));
       for (var i = 4; i <= 92; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.8;
         if (i == 4) {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
 
@@ -134,7 +132,7 @@ window.onload = function () {
       // Draw Frog Right Leg
       frogLeftPosition = 0;
       for (var i = 80; i <= 168; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.8;
         if (i == 80) {
           frogCanvasContext.beginPath();
           frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 22 - frogLeftRightOffset);
@@ -180,28 +178,6 @@ window.onload = function () {
 
   }
 
-
-  // file.onchange = function () {
-  //   var files = this.files;
-  //   audio.src = URL.createObjectURL(files[0]);
-  //   audio.load();
-  //   audio.play();
-  //   var context = window.AudioContext ? new window.AudioContext() : new window.webkitAudioContext();
-  //   var src = context.createMediaElementSource(audio);
-  //   var analyser = context.createAnalyser();
-
-  //   src.connect(analyser);
-  //   analyser.connect(context.destination);
-
-  //   analyser.fftSize = 512;
-  //   analyser.maxDecibels = -20;
-
-  //   var bufferLength = analyser.frequencyBinCount;
-  //   var dataArray = new Uint8Array(bufferLength);
-
-  //   audio.play();
-  //   renderFrame();
-  // };
 
   function renderLightBG () {
     // Render Left Light Background
