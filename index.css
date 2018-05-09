@@ -81,9 +81,10 @@ button {
     z-index: 102;
   }
   #lightCanvas {
-    border: 1px solid salmon;
+    border: 2px solid salmon;
     position: fixed;
     z-index: 105;
+  
   }
 
   #canvas {
