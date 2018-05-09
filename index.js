@@ -112,10 +112,10 @@ window.onload = function () {
 
       // Draw Frog Left Leg
       frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-      var frogLeftRightOffset = Number((((dataArray[0] - dataArray[80]) / 255) * canvasHeight / 1.9).toFixed(2));
-      for (var i = 0; i <= 88; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.9;
-        if (i == 0) {
+      var frogLeftRightOffset = Number((((dataArray[0] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
+      for (var i = 3; i <= 88; i++) {
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
+        if (i == 3) {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
 
           frogCanvasContext.beginPath();
@@ -132,7 +132,7 @@ window.onload = function () {
       // Draw Frog Right Leg
       frogLeftPosition = 0;
       for (var i = 80; i <= 168; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.9;
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
         if (i == 80) {
           frogCanvasContext.beginPath();
           frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 11 - frogLeftRightOffset);
@@ -148,7 +148,7 @@ window.onload = function () {
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
       
       var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 215) {
+      if (dataArray[0] > 220) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
@@ -157,7 +157,7 @@ window.onload = function () {
         bassCanvasContext.fill();
       }
 
-      if (dataArray[50] < 100 && dataArray[50] > 0) {
+      if (dataArray[50] < 120 && dataArray[50] > 0) {
         var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
@@ -166,7 +166,7 @@ window.onload = function () {
         bassCanvasContext.fill();
       }
 
-      if (dataArray[190] > 40) {
+      if (dataArray[170] > 40) {
         var bassRightColor = 'rgba(50,' + dataArray[30] + ',' + random + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width * 5 / 6, 0);
