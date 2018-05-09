@@ -56,7 +56,7 @@ window.onload = function () {
   var frogImgHeight = 60;
   var frogImgOffset = 36;
   frogImg.onload = function () {
-    frogCanvasContext.drawImage(frogImg, 0, canvasHeight - frogImgOffset, frogImgWidth, frogImgHeight);
+    frogCanvasContext.drawImage(frogImg, 4, canvasHeight - frogImgOffset, frogImgWidth, frogImgHeight);
   }
 
   // Light Image Init
@@ -148,7 +148,7 @@ window.onload = function () {
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
       
       var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 200) {
+      if (dataArray[0] > 215) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
@@ -229,6 +229,7 @@ function audioPlay() {
       audioSrc.connect(audioAnalyser);
       audioAnalyser.connect(audioContext.destination);
       audioAnalyser.fftSize = 512;
+      audioAnalyser.maxDecibels = -20;
 
       isFirstPlay = false;
     }
