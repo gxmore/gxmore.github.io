@@ -14,7 +14,7 @@ window.onload = function () {
 
   var canvasWidth = windowWidth < windowHeight ? windowWidth - 20 : windowHeight - 20;
   var canvasHeight = canvasWidth;
-  var canvasLeft = (windowWidth - canvasWidth) / 2;
+  var canvasLeft = (windowWidth - canvasWidth) / 2 - 1;
   var canvasTop = 20 || (windowHeight - canvasHeight) / 2;
 
   // Init Buttons Style
@@ -112,8 +112,8 @@ window.onload = function () {
 
       // Draw Frog Left Leg
       frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-      var frogLeftRightOffset = Number((((dataArray[0] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
-      for (var i = 3; i <= 88; i++) {
+      var frogLeftRightOffset = Number((((dataArray[3] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
+      for (var i = 3; i <= 91; i++) {
         frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
         if (i == 3) {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
