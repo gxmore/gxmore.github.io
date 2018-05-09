@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="content">
+
+    <canvas id="bassCanvas"></canvas>
+    <canvas id="frogCanvas"></canvas>
+    <canvas id="lightBGCanvas"></canvas>
+    <canvas id="lightCanvas"></canvas>
+
+    <audio id="audio" controls>
+      <source src="./audio.mp3" type="audio/mp3">
+    </audio>
+
+    <div id="btns">
+      <div>
+        <button id="play" onclick="audioPlay()">看青蛙跳舞</button>
+      </div>
+      <div>
+        <button id="pause" onclick="audioPause()">休息, 休息一下</button>
+      </div>
+    </div>
+  </div>
+
+  <img id="bgImg" src="./bg.png">
+  <script src="./index.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  position: relative;
+}
+
+#bgImg {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+}
+
+#btns {
+  position: absolute;
+  text-align: center;
+  z-index: 300;
+  width: 100%;
+  height: 30%;
+}
+
+#btns>div {
+  text-align: center;
+}
+
+button {
+  padding: 8px;
+  margin: 28px;
+  min-width: 500px;
+  min-height: 80px;
+  width: 500px;
+  height: 90px;
+  font-size: 38px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+#pause {
+  background-color: #f44336;
+  border: 10px solid #f44336;
+  color: white;
+}
+
+#play {
+  background-color: #4caf50;
+  border: 2px solid #4caf50;
+  color: white;
+}
+
+#thefile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+  }
+  
+  #bassCanvas {
+    position: fixed;
+    z-index: 103;
+  }
+
+  #frogCanvas {
+    position: fixed;
+    z-index: 104;
+  }
+
+  #lightBGCanvas {
+    position: fixed;
+    z-index: 102;
+  }
+  #lightCanvas {
+    border: 1px solid salmon;
+    position: fixed;
+    z-index: 105;
+  }
+
+  #canvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+  }
+  
+  audio {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    z-index: 104;
+    display: none;
+  }
