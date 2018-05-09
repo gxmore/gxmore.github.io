@@ -108,20 +108,20 @@ window.onload = function () {
       hasRendered = true;
 
       var frogLeftHeight;
-      var frogLeftPosition = 0;
+      var frogLeftPosition = 4;
 
       // Draw Frog Left Leg
       frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-      var frogLeftRightOffset = Number((((dataArray[4] - dataArray[80]) / 255) * canvasHeight / 1.8).toFixed(2));
-      for (var i = 4; i <= 92; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.8;
-        if (i == 4) {
+      var frogLeftRightOffset = Number((((dataArray[0] - dataArray[80]) / 255) * canvasHeight / 1.9).toFixed(2));
+      for (var i = 0; i <= 88; i++) {
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.9;
+        if (i == 0) {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
 
           frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + 92, canvasHeight - frogLeftHeight + 12);
+          frogCanvasContext.moveTo(frogLeftPosition + 90, canvasHeight - frogLeftHeight + 20);
         } else {
-          frogCanvasContext.lineTo(frogLeftPosition + 92, canvasHeight - frogLeftHeight + 12);
+          frogCanvasContext.lineTo(frogLeftPosition + 90, canvasHeight - frogLeftHeight + 20);
         }
         frogLeftPosition += frogBandWidth;
       }
@@ -132,12 +132,12 @@ window.onload = function () {
       // Draw Frog Right Leg
       frogLeftPosition = 0;
       for (var i = 80; i <= 168; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.8;
+        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.9;
         if (i == 80) {
           frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 22 - frogLeftRightOffset);
+          frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 11 - frogLeftRightOffset);
         } else {
-          frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 22 - frogLeftRightOffset);
+          frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 11 - frogLeftRightOffset);
         }
         frogLeftPosition += frogBandWidth;
       }
@@ -148,7 +148,7 @@ window.onload = function () {
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
       
       var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 215) {
+      if (dataArray[0] > 200) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
