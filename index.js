@@ -181,37 +181,37 @@ window.onload = function () {
 
   function renderLightBG() {
     // Render Left Light Background
-    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 64, 27, canvasWidth / 6 - 4, 72, 64);
+    var grdLeft = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 - 4, 64, 30, canvasWidth / 6 - 4, 72, 70);
 
     var leftColor = 'rgba(160,50,200, .4)';
     grdLeft.addColorStop(0, leftColor);
     grdLeft.addColorStop(0.8, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 - 4, 64, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 - 4, 64, 60, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdLeft;
     lightBGCanvasContext.fill();
 
     // Render Mid Light Background
-    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 30, 60, 27, canvasWidth / 2 - 30, 68, 64);
+    var grdMid = lightBGCanvasContext.createRadialGradient(canvasWidth / 2 - 30, 60, 30, canvasWidth / 2 - 30, 68, 70);
     var midColor = 'rgba(163,60,50, .4)';
     grdMid.addColorStop(0, midColor);
     grdMid.addColorStop(0.8, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 2 - 30, 60, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 2 - 30, 60, 60, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdMid;
     lightBGCanvasContext.fill();
 
     // Render Right Light Background
-    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 20, 64, 27, canvasWidth / 6 * 5 - 20, 72, 64);
+    var grdRight = lightBGCanvasContext.createRadialGradient(canvasWidth / 6 * 5 - 20, 64, 30, canvasWidth / 6 * 5 - 20, 72, 70);
     var rightColor = 'rgba(50,129,97, .4)';
 
     grdRight.addColorStop(0, rightColor);
     grdRight.addColorStop(0.8, 'black');
 
     lightBGCanvasContext.beginPath();
-    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 20, 64, 56, 0, 2 * Math.PI, false);
+    lightBGCanvasContext.arc(canvasWidth / 6 * 5 - 20, 64, 60, 0, 2 * Math.PI, false);
     lightBGCanvasContext.fillStyle = grdRight;
     lightBGCanvasContext.fill();
   }
