@@ -7,7 +7,7 @@ var sudioAnalyser;
 var audioPlayHandler;
 
 window.onload = function () {
-  var count = 0;
+
   // Init Canvas Style
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
@@ -88,101 +88,87 @@ window.onload = function () {
   }
 
   audioPlayHandler = function () {
-    render();
-  }
-
-  function render() {
     var bufferLength = audioAnalyser.frequencyBinCount;
     var dataArray = new Uint8Array(bufferLength);
     var hasRendered = false;
 
     renderFrame();
-
-    function renderFrame() {
-    
-      requestAnimationFrame(renderFrame);
-
-      if (count % 2 == 0) {
-        count++;
-      } else {
-        count++;
-        count %= 2;
-        return;
-      }
-
-      audioAnalyser.getByteFrequencyData(dataArray);
-
-      var frogLeftHeight;
-      var frogLeftPosition = 4;
-
-      // Draw Frog Left Leg
-      frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
-      var frogLeftRightOffset = Number((((dataArray[3] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
-      for (var i = 3; i <= 91; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
-        if (i == 3) {
-          frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
-
-          frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
-        } else {
-          frogCanvasContext.lineTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
-        }
-        frogLeftPosition += frogBandWidth;
-      }
-      frogCanvasContext.lineWidth = frogLineWidth;
-      frogCanvasContext.strokeStyle = '#4caf50';
-      frogCanvasContext.stroke();
-
-      // Draw Frog Right Leg
-      frogLeftPosition = 0;
-      for (var i = 80; i <= 168; i++) {
-        frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
-        if (i == 80) {
-          frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
-        } else {
-          frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
-        }
-        frogLeftPosition += frogBandWidth;
-      }
-      frogCanvasContext.lineWidth = frogLineWidth;
-      frogCanvasContext.strokeStyle = '#4caf50';
-      frogCanvasContext.stroke();
-
-      bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
-
-      var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 235) {
-        var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
-        bassCanvasContext.beginPath();
-        bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
-        bassCanvasContext.arc(bassCanvas.width / 6, 0, bassCanvas.width * 2, 0.45 * Math.PI, 0.6 * Math.PI, false);
-        bassCanvasContext.fillStyle = bassLeftColor;
-        bassCanvasContext.fill();
-      }
-
-      if (dataArray[50] < 115 && dataArray[50] > 0) {
-        var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
-        bassCanvasContext.beginPath();
-        bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
-        bassCanvasContext.arc(bassCanvas.width * 3 / 6, 0, bassCanvas.width * 2, 0.6 * Math.PI, 0.7 * Math.PI, false);
-        bassCanvasContext.fillStyle = bassMidColor;
-        bassCanvasContext.fill();
-      }
-
-      if (dataArray[170] > 40) {
-        var bassRightColor = 'rgba(50,' + dataArray[30] + ',' + random + ', .4)';
-        bassCanvasContext.beginPath();
-        bassCanvasContext.moveTo(bassCanvas.width * 5 / 6, 0);
-        bassCanvasContext.arc(bassCanvas.width * 5 / 6, 0, bassCanvas.width * 2, 0.45 * Math.PI, 0.75 * Math.PI, false);
-        bassCanvasContext.fillStyle = bassRightColor;
-        bassCanvasContext.fill();
-      }
-    }
-
   }
 
+  function renderFrame() {
+    
+    audioAnalyser.getByteFrequencyData(dataArray);
+
+    var frogLeftHeight;
+    var frogLeftPosition = 4;
+
+    // Draw Frog Left Leg
+    frogCanvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
+    var frogLeftRightOffset = Number((((dataArray[3] - dataArray[80]) / 255) * canvasHeight / 1.7).toFixed(2));
+    for (var i = 3; i <= 91; i++) {
+      frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
+      if (i == 3) {
+        frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
+
+        frogCanvasContext.beginPath();
+        frogCanvasContext.moveTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
+      } else {
+        frogCanvasContext.lineTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
+      }
+      frogLeftPosition += frogBandWidth;
+    }
+    frogCanvasContext.lineWidth = frogLineWidth;
+    frogCanvasContext.strokeStyle = '#4caf50';
+    frogCanvasContext.stroke();
+
+    // Draw Frog Right Leg
+    frogLeftPosition = 0;
+    for (var i = 80; i <= 168; i++) {
+      frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
+      if (i == 80) {
+        frogCanvasContext.beginPath();
+        frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
+      } else {
+        frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
+      }
+      frogLeftPosition += frogBandWidth;
+    }
+    frogCanvasContext.lineWidth = frogLineWidth;
+    frogCanvasContext.strokeStyle = '#4caf50';
+    frogCanvasContext.stroke();
+
+    bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
+
+    var random = Math.floor(Math.random() * 190) + 50;
+    if (dataArray[0] > 235) {
+      var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
+      bassCanvasContext.beginPath();
+      bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
+      bassCanvasContext.arc(bassCanvas.width / 6, 0, bassCanvas.width * 2, 0.45 * Math.PI, 0.6 * Math.PI, false);
+      bassCanvasContext.fillStyle = bassLeftColor;
+      bassCanvasContext.fill();
+    }
+
+    if (dataArray[50] < 115 && dataArray[50] > 0) {
+      var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
+      bassCanvasContext.beginPath();
+      bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
+      bassCanvasContext.arc(bassCanvas.width * 3 / 6, 0, bassCanvas.width * 2, 0.6 * Math.PI, 0.7 * Math.PI, false);
+      bassCanvasContext.fillStyle = bassMidColor;
+      bassCanvasContext.fill();
+    }
+
+    if (dataArray[170] > 40) {
+      var bassRightColor = 'rgba(50,' + dataArray[30] + ',' + random + ', .4)';
+      bassCanvasContext.beginPath();
+      bassCanvasContext.moveTo(bassCanvas.width * 5 / 6, 0);
+      bassCanvasContext.arc(bassCanvas.width * 5 / 6, 0, bassCanvas.width * 2, 0.45 * Math.PI, 0.75 * Math.PI, false);
+      bassCanvasContext.fillStyle = bassRightColor;
+      bassCanvasContext.fill();
+    }
+    
+    requestAnimationFrame(renderFrame);
+  }
 
   function renderLightBG() {
     // Render Left Light Background
