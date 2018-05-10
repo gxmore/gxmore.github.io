@@ -102,11 +102,12 @@ window.onload = function () {
     
       requestAnimationFrame(renderFrame);
 
-      if (count % 4 != 0) {
+      if (count % 4 == 0) {
         count++;
-        return;
       } else {
-        count = 0;
+        count++;
+        count %= 4;
+        return;
       }
 
       audioAnalyser.getByteFrequencyData(dataArray);
