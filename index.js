@@ -157,7 +157,7 @@ window.onload = function () {
         bassCanvasContext.fill();
       }
 
-      if (dataArray[50] < 110 && dataArray[50] > 0) {
+      if (dataArray[50] < 115 && dataArray[50] > 0) {
         var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
