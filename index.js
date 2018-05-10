@@ -226,6 +226,8 @@ window.onload = function () {
 function audioPlay() {
   if (!isAudioPlaying) {
     player.play();
+    player.pause();
+    player.play();
     if (isFirstPlay) {
       audioContext = window.AudioContext ? new window.AudioContext() : new window.webkitAudioContext();
       audioSrc = audioContext.createMediaElementSource(player);
