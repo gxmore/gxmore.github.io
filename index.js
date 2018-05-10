@@ -119,9 +119,9 @@ window.onload = function () {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
 
           frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 24);
+          frogCanvasContext.moveTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
         } else {
-          frogCanvasContext.lineTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 24);
+          frogCanvasContext.lineTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 28);
         }
         frogLeftPosition += frogBandWidth;
       }
@@ -135,9 +135,9 @@ window.onload = function () {
         frogLeftHeight = (dataArray[i] / 255) * canvasHeight / 1.7;
         if (i == 80) {
           frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 11 - frogLeftRightOffset);
+          frogCanvasContext.moveTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
         } else {
-          frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 11 - frogLeftRightOffset);
+          frogCanvasContext.lineTo(frogLeftPosition + frogImgWidth - 8, canvasHeight - frogLeftHeight + 13 - frogLeftRightOffset);
         }
         frogLeftPosition += frogBandWidth;
       }
