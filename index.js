@@ -7,7 +7,7 @@ var sudioAnalyser;
 var audioPlayHandler;
 
 window.onload = function () {
-
+  var count = 0;
   // Init Canvas Style
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
@@ -99,13 +99,17 @@ window.onload = function () {
     renderFrame();
 
     function renderFrame() {
-      if (hasRendered && !isAudioPlaying) {
-        //return;
+    
+      requestAnimationFrame(renderFrame);
+
+      if (count % 4 != 0) {
+        count++;
+        return;
+      } else {
+        count = 0;
       }
 
-      requestAnimationFrame(renderFrame);
       audioAnalyser.getByteFrequencyData(dataArray);
-      hasRendered = true;
 
       var frogLeftHeight;
       var frogLeftPosition = 4;
