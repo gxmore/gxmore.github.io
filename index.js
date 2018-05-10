@@ -102,11 +102,11 @@ window.onload = function () {
     
       requestAnimationFrame(renderFrame);
 
-      if (count % 4 == 0) {
+      if (count % 2 == 0) {
         count++;
       } else {
         count++;
-        count %= 4;
+        count %= 2;
         return;
       }
 
