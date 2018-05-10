@@ -148,7 +148,7 @@ window.onload = function () {
       bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
 
       var random = Math.floor(Math.random() * 190) + 50;
-      if (dataArray[0] > 230) {
+      if (dataArray[0] > 235) {
         var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
         bassCanvasContext.beginPath();
         bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
