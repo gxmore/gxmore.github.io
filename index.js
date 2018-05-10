@@ -89,7 +89,7 @@ window.onload = function () {
   }
 
   audioPlayHandler = function () {
-    renderFrame();
+    requestAnimationFrame(renderFrame);
   }
 
   function renderFrame() {
