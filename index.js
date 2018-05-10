@@ -5,6 +5,7 @@ var audioContext;
 var audioSrc;
 var sudioAnalyser;
 var audioPlayHandler;
+var dataArray;
 
 window.onload = function () {
 
@@ -88,15 +89,10 @@ window.onload = function () {
   }
 
   audioPlayHandler = function () {
-    var bufferLength = audioAnalyser.frequencyBinCount;
-    var dataArray = new Uint8Array(bufferLength);
-    var hasRendered = false;
-
     renderFrame();
   }
 
   function renderFrame() {
-    
     audioAnalyser.getByteFrequencyData(dataArray);
 
     var frogLeftHeight;
@@ -166,7 +162,7 @@ window.onload = function () {
       bassCanvasContext.fillStyle = bassRightColor;
       bassCanvasContext.fill();
     }
-    
+
     requestAnimationFrame(renderFrame);
   }
 
@@ -224,6 +220,8 @@ function audioPlay() {
       audioAnalyser.fftSize = 512;
       audioAnalyser.maxDecibels = -20;
 
+      var bufferLength = audioAnalyser.frequencyBinCount;
+      dataArray = new Uint8Array(bufferLength);
       isFirstPlay = false;
     }
     audioPlayHandler();
