@@ -208,8 +208,6 @@ window.onload = function () {
 function audioPlay() {
   if (!isAudioPlaying) {
     player.play();
-    player.pause();
-    player.play();
     if (isFirstPlay) {
       audioContext = window.AudioContext ? new window.AudioContext() : new window.webkitAudioContext();
       audioSrc = audioContext.createMediaElementSource(player);
@@ -223,8 +221,8 @@ function audioPlay() {
       var bufferLength = audioAnalyser.frequencyBinCount;
       dataArray = new Uint8Array(bufferLength);
       isFirstPlay = false;
+      audioPlayHandler();
     }
-    audioPlayHandler();
 
     isAudioPlaying = true;
   }
