@@ -52,9 +52,9 @@ window.onload = function () {
   // Frog Image
   var frogImg = new Image();
   frogImg.src = './frog.svg';
-  var frogImgWidth = 100;
-  var frogImgHeight = 60;
-  var frogImgOffset = 36;
+  var frogImgWidth = 150;
+  var frogImgHeight = 90;
+  var frogImgOffset = 58;
   frogImg.onload = function () {
     frogCanvasContext.drawImage(frogImg, 4, canvasHeight - frogImgOffset, frogImgWidth, frogImgHeight);
   }
@@ -119,9 +119,9 @@ window.onload = function () {
           frogCanvasContext.drawImage(frogImg, frogLeftPosition, canvasHeight - frogLeftHeight - frogImgOffset, frogImgWidth, frogImgHeight);
 
           frogCanvasContext.beginPath();
-          frogCanvasContext.moveTo(frogLeftPosition + 90, canvasHeight - frogLeftHeight + 20);
+          frogCanvasContext.moveTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 24);
         } else {
-          frogCanvasContext.lineTo(frogLeftPosition + 90, canvasHeight - frogLeftHeight + 20);
+          frogCanvasContext.lineTo(frogLeftPosition + 136, canvasHeight - frogLeftHeight + 24);
         }
         frogLeftPosition += frogBandWidth;
       }
