@@ -136,7 +136,7 @@ window.onload = function () {
     bassCanvasContext.clearRect(0, 0, bassCanvas.width, bassCanvas.height);
 
     var random = Math.floor(Math.random() * 190) + 50;
-    if (dataArray[0] > 235) {
+    if (dataArray[0] > 160) {
       var bassLeftColor = 'rgba(' + random + ',50,' + dataArray[0] + ', .4)';
       bassCanvasContext.beginPath();
       bassCanvasContext.moveTo(bassCanvas.width / 6, 0);
@@ -145,7 +145,7 @@ window.onload = function () {
       bassCanvasContext.fill();
     }
 
-    if (dataArray[50] < 115 && dataArray[50] > 0) {
+    if (dataArray[50] < 100 && dataArray[50] > 0) {
       var bassMidColor = 'rgba(' + random + ',' + dataArray[150] + ',50, .4)';
       bassCanvasContext.beginPath();
       bassCanvasContext.moveTo(bassCanvas.width * 3 / 6, 0);
@@ -154,7 +154,7 @@ window.onload = function () {
       bassCanvasContext.fill();
     }
 
-    if (dataArray[170] > 36) {
+    if (dataArray[90] > 30) {
       var bassRightColor = 'rgba(50,' + dataArray[30] + ',' + random + ', .4)';
       bassCanvasContext.beginPath();
       bassCanvasContext.moveTo(bassCanvas.width * 5 / 6, 0);
