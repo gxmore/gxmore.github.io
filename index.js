@@ -29,6 +29,9 @@ window.onload = function () {
   lightBGCanvas.setAttribute('style', 'left:' + canvasLeft + 'px; top:' + canvasTop + 'px;');
 
   var lightBGCanvasContext = lightBGCanvas.getContext('2d');
+  lightBGCanvasContext.beginPath();
+  lightBGCanvasContext.fillStyle = 'black';
+  lightBGCanvasContext.fillRect(0, 0, canvasWidth, canvasHeight);
   renderLightBG();
 
   // Bass Canvas Style Init
