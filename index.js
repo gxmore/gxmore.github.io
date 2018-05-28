@@ -158,7 +158,7 @@ window.onload = function () {
     }
 
     if (dataArray[110] > 40) {
-      var bassRightColor = 'rgba(50,' + random + ',' + dataArray[20] + ', .4)';
+      var bassRightColor = 'rgba(50,' + random + ',' + dataArray[20] + ', .3)';
       bassCanvasContext.beginPath();
       bassCanvasContext.moveTo(bassCanvas.width * 5 / 6, 0);
       bassCanvasContext.arc(bassCanvas.width * 5 / 6, 0, bassCanvas.width * 2, 0.45 * Math.PI, 0.75 * Math.PI, false);
