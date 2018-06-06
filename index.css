@@ -83,6 +83,7 @@ button {
     position: fixed;
     z-index: 102;
   }
+  
   #lightCanvas {
     border: 2px solid salmon;
     position: fixed;
