@@ -8,7 +8,6 @@ var audioPlayHandler;
 var dataArray;
 
 window.onload = function () {
-
   // Init Canvas Style
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
